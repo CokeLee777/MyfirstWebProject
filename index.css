@@ -1,7 +1,12 @@
 body{
     background-color: #ecf0f1;
+    text-align: center;
+    margin: auto;
 }
 
+.js-clock{
+    font:bold 2rem 'Nanum Myeongjo', serif;
+}
 
 .clicked{
     color:#7f8c8d;
