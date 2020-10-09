@@ -4,7 +4,24 @@ const toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos";
 
-const toDos = [];
+let toDos = [];
+
+//할일 목록 삭제 버튼을 눌렀을 때 지워지게 하는 함수 
+function deleteToDo(event){
+    const btn = event.target;
+    //누른 버튼의 부모 태그를 li 변수에 저장
+    const li = btn.parentNode;
+    //삭제버튼을 누른 할일 목록을 지움
+    toDoList.removeChild(li);
+
+    //id 값을 걸러주는 변수 생성 해 함수 필터에 함수 적용
+    //로컬 저장소에 있는 할일을 없애주는 역할
+    const cleanToDos = toDos.filter(function(toDo){
+        return toDo.id !== parseInt(li.id);
+    });
+    toDos = cleanToDos;
+    saveToDos();
+}
 
 //할일 배열을 들고와서 로컬 저장소에 저장하는 함수
 function saveToDos(){
@@ -24,6 +41,8 @@ function paintToDo(text){
     const newId = toDos.length + 1;
     //각각의 태그들에 함수가 불릴 때 text삽입
     delBtn.innerText = "X";
+    //할일 목록을 지우기 위해 클릭 이벤트를 만들어줌
+    delBtn.addEventListener("click", deleteToDo);
     span.innerText = text;
     //부모엘리먼트에 append 한다.
     li.appendChild(span);
