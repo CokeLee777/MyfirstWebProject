@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 
-const IMG_NUMBER = 3;
+const IMG_NUMBER = 4;
 
 //html 에 이미지를 보여주기 위한 함수
 function paintImage(imgNumber){
