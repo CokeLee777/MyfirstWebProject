@@ -1,2 +1,3 @@
 # MyfirstWebProject
-this repository is my first webproject
+## Vanilla JavaScript로 웹 페이지 만들기
+
